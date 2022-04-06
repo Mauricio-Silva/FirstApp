@@ -9,7 +9,16 @@ class FirstApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          alignment: Alignment.center,
+          child: const Text("Wello, World!",
+              style: TextStyle(color: Color(0xff00f99f), fontSize: 20)),
+        ),
+      ),
+      theme: ThemeData.dark(),
+    );
   }
 }
 
