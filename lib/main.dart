@@ -11,16 +11,84 @@ class FirstApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+            leading: Builder(
+              builder: (BuildContext context) {
+                return IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                );
+              },
+            ),
+            title: const Text("Barra Supeior"),
+            actions: const <Widget>[
+              Icon(Icons.add_alert),
+            ]),
         body: Container(
           alignment: Alignment.center,
-          child: const Text("Wello, World!",
-              style: TextStyle(color: Color(0xff00f99f), fontSize: 20)),
+          child: const LittleButton(),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: const <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(color: Colors.blue),
+                child: Text('Drawer Header',
+                    style: TextStyle(color: Colors.white, fontSize: 24)),
+              ),
+              ListTile(
+                leading: Icon(Icons.message),
+                title: Text('Messages'),
+              ),
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text('Profile'),
+              ),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Settings'),
+              ),
+            ],
+          ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            )
+          ],
         ),
       ),
       theme: ThemeData.dark(),
     );
   }
 }
+
+class LittleButton extends StatelessWidget {
+  const LittleButton({Key? key}) : super(key: key);
+
+  void _click() {
+    print("The User has clicked");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        child: const Text("Click Here",
+            style: TextStyle(color: Colors.white, fontSize: 20)),
+        onPressed: _click,
+        style: ElevatedButton.styleFrom(primary: Colors.green));
+  }
+}
+
 
 
 
