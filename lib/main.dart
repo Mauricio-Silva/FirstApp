@@ -10,26 +10,56 @@ class FirstApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        //=======================================================[ App Bar ]===-->
         appBar: AppBar(
-            leading: Builder(
-              builder: (BuildContext context) {
-                return IconButton(
-                  icon: const Icon(Icons.menu),
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                );
-              },
+          //====================================[ Leading ]===-->
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.menu, color: Color(0xff00f99f)),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            },
+          ),
+          //====================================[ Title ]===-->
+          title: const Text("Barra Supeior"),
+          //====================================[ Actions ]===-->
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.share, color: Color(0xff00f99f)),
+              onPressed: () {},
             ),
-            title: const Text("Barra Supeior"),
-            actions: const <Widget>[
-              Icon(Icons.add_alert),
-            ]),
+            IconButton(
+              icon: const Icon(Icons.favorite, color: Color(0xff00f99f)),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: const Icon(Icons.more_vert, color: Color(0xff00f99f)),
+              onPressed: () {},
+            ),
+          ],
+          //====================================[ Bottom ]===-->
+          bottom: PreferredSize(
+            child: Row(
+              children: const <Widget>[
+                Text("Comidas"),
+                Text("Bebidas"),
+              ],
+            ),
+            // TabBar
+            preferredSize: const Size(00, 20),
+          ),
+        ),
+        //=======================================================[ Body ]===-->
         body: Container(
           alignment: Alignment.center,
           child: const LittleButton(),
         ),
+        //=======================================================[ Drawer ]===-->
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -54,6 +84,7 @@ class FirstApp extends StatelessWidget {
             ],
           ),
         ),
+        //=======================================================[ Bottom Navigation Bar ]===-->
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -75,16 +106,19 @@ class FirstApp extends StatelessWidget {
 class LittleButton extends StatelessWidget {
   const LittleButton({Key? key}) : super(key: key);
 
-  void _click() {
-    print("The User has clicked");
-  }
+  // void _click() {
+  //   print("The User has clicked");
+  // }
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         child: const Text("Click Here",
             style: TextStyle(color: Colors.white, fontSize: 20)),
-        onPressed: _click,
+        // onPressed: _click,
+        onPressed: () {
+          print("The User has clicked");
+        },
         style: ElevatedButton.styleFrom(primary: Colors.green));
   }
 }
