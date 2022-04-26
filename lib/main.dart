@@ -11,94 +11,109 @@ class FirstApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        //=======================================================[ App Bar ]===-->
-        appBar: AppBar(
-          //====================================[ Leading ]===-->
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const Icon(Icons.menu, color: Color(0xff00f99f)),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              );
-            },
-          ),
-          //====================================[ Title ]===-->
-          title: const Text("Barra Supeior"),
-          //====================================[ Actions ]===-->
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.share, color: Color(0xff00f99f)),
-              onPressed: () {},
+      theme: ThemeData.dark(),
+      home: DefaultTabController(
+        initialIndex: 1,
+        length: 3,
+        child: Scaffold(
+          //=======================================================[ App Bar ]===-->
+          appBar: AppBar(
+            //====================================[ Leading ]===-->
+            leading: Builder(
+              builder: (BuildContext context) {
+                return IconButton(
+                  icon: const Icon(Icons.menu, color: Color(0xff00f99f)),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                );
+              },
             ),
-            IconButton(
-              icon: const Icon(Icons.favorite, color: Color(0xff00f99f)),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: const Icon(Icons.more_vert, color: Color(0xff00f99f)),
-              onPressed: () {},
-            ),
-          ],
-          //====================================[ Bottom ]===-->
-          bottom: PreferredSize(
-            child: Row(
-              children: const <Widget>[
-                Text("Comidas"),
-                Text("Bebidas"),
+            //====================================[ Title ]===-->
+            title: const Text("Barra Supeior"),
+            //====================================[ Actions ]===-->
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.share, color: Color(0xff00f99f)),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: const Icon(Icons.favorite, color: Color(0xff00f99f)),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: const Icon(Icons.more_vert, color: Color(0xff00f99f)),
+                onPressed: () {},
+              ),
+            ],
+            //====================================[ Bottom ]===-->
+            bottom: const TabBar(
+              tabs: <Widget>[
+                Tab(icon: Text("Album")),
+                Tab(icon: Text("Botão")),
+                Tab(icon: Text("Playlist")),
               ],
             ),
-            // TabBar
-            preferredSize: const Size(00, 20),
           ),
-        ),
-        //=======================================================[ Body ]===-->
-        body: Container(
-          alignment: Alignment.center,
-          child: const LittleButton(),
-        ),
-        //=======================================================[ Drawer ]===-->
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: const <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(color: Colors.blue),
-                child: Text('Drawer Header',
-                    style: TextStyle(color: Colors.white, fontSize: 24)),
+          //=======================================================[ Body ]===-->
+          body: TabBarView(
+            children: <Widget>[
+              const Center(
+                child: Text("The Album is Here!"),
               ),
-              ListTile(
-                leading: Icon(Icons.message),
-                title: Text('Messages'),
+              Container(
+                alignment: Alignment.center,
+                child: const LittleButton(),
               ),
-              ListTile(
-                leading: Icon(Icons.account_circle),
-                title: Text('Profile'),
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
+              const Center(
+                child: Text("The Playlist is Here!"),
               ),
             ],
           ),
-        ),
-        //=======================================================[ Bottom Navigation Bar ]===-->
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+          // body: Container(
+          //   alignment: Alignment.center,
+          //   child: const LittleButton(),
+          // ),
+          //=======================================================[ Drawer ]===-->
+          drawer: Drawer(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: const <Widget>[
+                DrawerHeader(
+                  decoration: BoxDecoration(color: Colors.blue),
+                  child: Text('Drawer Header',
+                      style: TextStyle(color: Colors.white, fontSize: 24)),
+                ),
+                ListTile(
+                  leading: Icon(Icons.message),
+                  title: Text('Messages'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text('Profile'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text('Settings'),
+                ),
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-            )
-          ],
+          ),
+          //=======================================================[ Bottom Navigation Bar ]===-->
+          bottomNavigationBar: BottomNavigationBar(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Settings',
+              )
+            ],
+          ),
         ),
       ),
-      theme: ThemeData.dark(),
     );
   }
 }
@@ -114,12 +129,20 @@ class LittleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         child: const Text("Click Here",
-            style: TextStyle(color: Colors.white, fontSize: 20)),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              letterSpacing: 2.0,
+            )),
         // onPressed: _click,
         onPressed: () {
           print("The User has clicked");
         },
-        style: ElevatedButton.styleFrom(primary: Colors.green));
+        style: ElevatedButton.styleFrom(
+          primary: const Color(0xff00f99f),
+          padding: const EdgeInsets.all(10.0),
+          shadowColor: const Color(0xffffffff),
+        ));
   }
 }
 
