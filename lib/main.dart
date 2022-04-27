@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meuapp/little_button.dart';
 
 void main() {
   runApp(const FirstApp());
@@ -11,7 +12,10 @@ class FirstApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        // primarySwatch: Colors.red,
+      ),
       home: DefaultTabController(
         initialIndex: 1,
         length: 3,
@@ -22,31 +26,34 @@ class FirstApp extends StatelessWidget {
             leading: Builder(
               builder: (BuildContext context) {
                 return IconButton(
-                  icon: const Icon(Icons.menu, color: Color(0xff00f99f)),
+                  icon: const Icon(Icons.menu),
                   onPressed: () {
                     Scaffold.of(context).openDrawer();
                   },
                 );
               },
             ),
-            //====================================[ Title ]===-->
+            //======================================[ Title ]===-->
             title: const Text("Barra Supeior"),
             //====================================[ Actions ]===-->
             actions: [
               IconButton(
-                icon: const Icon(Icons.share, color: Color(0xff00f99f)),
+                icon: const Icon(Icons.share),
+                tooltip: "Share",
                 onPressed: () {},
               ),
               IconButton(
-                icon: const Icon(Icons.favorite, color: Color(0xff00f99f)),
+                icon: const Icon(Icons.favorite),
+                tooltip: "Favorite",
                 onPressed: () {},
               ),
               IconButton(
-                icon: const Icon(Icons.more_vert, color: Color(0xff00f99f)),
+                icon: const Icon(Icons.more_vert),
+                tooltip: "MoreVert",
                 onPressed: () {},
               ),
             ],
-            //====================================[ Bottom ]===-->
+            //=====================================[ Bottom ]===-->
             bottom: const TabBar(
               tabs: <Widget>[
                 Tab(icon: Text("Album")),
@@ -55,7 +62,7 @@ class FirstApp extends StatelessWidget {
               ],
             ),
           ),
-          //=======================================================[ Body ]===-->
+          //==========================================================[ Body ]===-->
           body: TabBarView(
             children: <Widget>[
               const Center(
@@ -70,11 +77,7 @@ class FirstApp extends StatelessWidget {
               ),
             ],
           ),
-          // body: Container(
-          //   alignment: Alignment.center,
-          //   child: const LittleButton(),
-          // ),
-          //=======================================================[ Drawer ]===-->
+          //========================================================[ Drawer ]===-->
           drawer: Drawer(
             child: ListView(
               padding: EdgeInsets.zero,
@@ -99,7 +102,7 @@ class FirstApp extends StatelessWidget {
               ],
             ),
           ),
-          //=======================================================[ Bottom Navigation Bar ]===-->
+          //=========================================[ Bottom Navigation Bar ]===-->
           bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
@@ -118,33 +121,7 @@ class FirstApp extends StatelessWidget {
   }
 }
 
-class LittleButton extends StatelessWidget {
-  const LittleButton({Key? key}) : super(key: key);
 
-  // void _click() {
-  //   print("The User has clicked");
-  // }
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-        child: const Text("Click Here",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              letterSpacing: 2.0,
-            )),
-        // onPressed: _click,
-        onPressed: () {
-          print("The User has clicked");
-        },
-        style: ElevatedButton.styleFrom(
-          primary: const Color(0xff00f99f),
-          padding: const EdgeInsets.all(10.0),
-          shadowColor: const Color(0xffffffff),
-        ));
-  }
-}
 
 
 
