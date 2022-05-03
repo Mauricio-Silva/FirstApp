@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meuapp/little_button.dart';
+import 'package:meuapp/x_app_bar.dart';
+import 'package:meuapp/x_body.dart';
+import 'package:meuapp/x_bottom_nav_bar.dart';
+import 'package:meuapp/x_drawer.dart';
 
 void main() {
   runApp(const FirstApp());
@@ -14,107 +17,15 @@ class FirstApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
-        // primarySwatch: Colors.red,
       ),
-      home: DefaultTabController(
+      home: const DefaultTabController(
         initialIndex: 1,
-        length: 3,
+        length: 6,
         child: Scaffold(
-          //=======================================================[ App Bar ]===-->
-          appBar: AppBar(
-            //====================================[ Leading ]===-->
-            leading: Builder(
-              builder: (BuildContext context) {
-                return IconButton(
-                  icon: const Icon(Icons.menu),
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                );
-              },
-            ),
-            //======================================[ Title ]===-->
-            title: const Text("Barra Supeior"),
-            //====================================[ Actions ]===-->
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.share),
-                tooltip: "Share",
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.favorite),
-                tooltip: "Favorite",
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.more_vert),
-                tooltip: "MoreVert",
-                onPressed: () {},
-              ),
-            ],
-            //=====================================[ Bottom ]===-->
-            bottom: const TabBar(
-              tabs: <Widget>[
-                Tab(icon: Text("Album")),
-                Tab(icon: Text("Botão")),
-                Tab(icon: Text("Playlist")),
-              ],
-            ),
-          ),
-          //==========================================================[ Body ]===-->
-          body: TabBarView(
-            children: <Widget>[
-              const Center(
-                child: Text("The Album is Here!"),
-              ),
-              Container(
-                alignment: Alignment.center,
-                child: const LittleButton(),
-              ),
-              const Center(
-                child: Text("The Playlist is Here!"),
-              ),
-            ],
-          ),
-          //========================================================[ Drawer ]===-->
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: const <Widget>[
-                DrawerHeader(
-                  decoration: BoxDecoration(color: Colors.blue),
-                  child: Text('Drawer Header',
-                      style: TextStyle(color: Colors.white, fontSize: 24)),
-                ),
-                ListTile(
-                  leading: Icon(Icons.message),
-                  title: Text('Messages'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.account_circle),
-                  title: Text('Profile'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text('Settings'),
-                ),
-              ],
-            ),
-          ),
-          //=========================================[ Bottom Navigation Bar ]===-->
-          bottomNavigationBar: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Settings',
-              )
-            ],
-          ),
+          appBar: XAppBar(),
+          body: XBody(),
+          drawer: XDrawer(),
+          bottomNavigationBar: XBottomNavBar(),
         ),
       ),
     );
