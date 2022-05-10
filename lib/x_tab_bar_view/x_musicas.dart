@@ -8,7 +8,7 @@ class XMusicas extends StatelessWidget {
     return ListView(
       children: [
         const ListTile(
-          leading: Icon(Icons.alt_route, color: Colors.blue),
+          leading: Icon(Icons.shuffle, color: Colors.blue),
           title: Text("Repoduzir todas aleatoriamente"),
         ),
         const Divider(),

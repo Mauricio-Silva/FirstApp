@@ -19,7 +19,7 @@ class FirstApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       home: const DefaultTabController(
-        initialIndex: 1,
+        initialIndex: 3,
         length: 6,
         child: Scaffold(
           appBar: XAppBar(),
