@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meuapp/x_app_bar.dart';
-import 'package:meuapp/x_body.dart';
-import 'package:meuapp/x_bottom_nav_bar.dart';
-import 'package:meuapp/x_drawer.dart';
+import 'package:meuapp/x_scaffold/x_app_bar.dart';
+import 'package:meuapp/x_scaffold/x_body.dart';
+import 'package:meuapp/x_scaffold/x_bottom_nav_bar.dart';
+import 'package:meuapp/x_scaffold/x_drawer.dart';
 
 void main() {
   runApp(const FirstApp());

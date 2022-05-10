@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meuapp/little_button.dart';
+import 'package:meuapp/x_tab_bar_view/x_generos.dart';
+import 'package:meuapp/x_tab_bar_view/x_musicas.dart';
 
 class XBody extends StatelessWidget {
   const XBody({Key? key}) : super(key: key);
@@ -8,25 +10,7 @@ class XBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarView(
       children: <Widget>[
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const <Widget>[
-                Text("Rock"),
-                Icon(Icons.more_vert),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const <Widget>[
-                Text("Pop"),
-                Icon(Icons.more_vert),
-              ],
-            ),
-          ],
-        ),
+        const XGeneros(),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [
@@ -34,6 +18,13 @@ class XBody extends StatelessWidget {
             LittleButton(),
             LittleButton(),
           ],
+        ),
+        const Center(
+          child: Text("The Playlist is Here!"),
+        ),
+        const XMusicas(),
+        const Center(
+          child: Text("The Playlist is Here!"),
         ),
         const Center(
           child: Text("The Playlist is Here!"),
