@@ -7,6 +7,7 @@ class XAlbum extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
+        const SizedBox(height: 8),
         const ListTile(
           leading: Icon(Icons.shuffle, color: Colors.blue),
           title: Text("Álbuns Aleatórios"),

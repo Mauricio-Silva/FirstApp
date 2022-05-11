@@ -9,12 +9,28 @@ class XDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: const <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
+          // DrawerHeader(),
+          UserAccountsDrawerHeader(
+            accountName: Text("Black Rover"),
+            accountEmail: Text("VickeBlanka - Wizard"),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: NetworkImage(
+                "https://cdn.myanimelist.net/images/characters/16/466210.jpg",
+              ),
             ),
-            child: Text('Drawer Header',
-                style: TextStyle(color: Colors.white, fontSize: 24)),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                  "https://lastfm.freetls.fastly.net/i/u/ar0/ad05b6bd6e70b95f31b9cb3215a509fc.jpg",
+                ),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Color(0xff000000),
+                  BlendMode.srcOver,
+                ),
+                // opacity: 0.5,
+              ),
+            ),
           ),
           ListTile(
             leading: Icon(Icons.library_music),
