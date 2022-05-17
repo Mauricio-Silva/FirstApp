@@ -41,6 +41,7 @@ class XAppBar extends StatelessWidget implements PreferredSizeWidget {
           Tab(icon: Text("MÚSICAS")),
           Tab(icon: Text("PASTAS")),
           Tab(icon: Text("PLAYLISTS")),
+          Tab(icon: Text("REPRODUÇÃO")),
         ],
         isScrollable: true,
       ),

@@ -20,7 +20,7 @@ class FirstApp extends StatelessWidget {
       ),
       home: const DefaultTabController(
         initialIndex: 3,
-        length: 6,
+        length: 7,
         child: Scaffold(
           appBar: XAppBar(),
           body: XBody(),

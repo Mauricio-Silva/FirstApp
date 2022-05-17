@@ -24,10 +24,10 @@ class XDrawer extends StatelessWidget {
                   "https://lastfm.freetls.fastly.net/i/u/ar0/ad05b6bd6e70b95f31b9cb3215a509fc.jpg",
                 ),
                 fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                  Color(0xff000000),
-                  BlendMode.srcOver,
-                ),
+                // colorFilter: ColorFilter.mode(
+                //   Color(0xff000000),
+                //   BlendMode.srcOver,
+                // ),
                 // opacity: 0.5,
               ),
             ),
