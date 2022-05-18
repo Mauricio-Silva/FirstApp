@@ -10,6 +10,11 @@ class XDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: const <Widget>[
           // DrawerHeader(),
+          // Stack(
+          //   children: [
+          //     Image.network("https://lastfm.freetls.fastly.net/i/u/ar0/ad05b6bd6e70b95f31b9cb3215a509fc.jpg")
+          //   ],
+          // ),
           UserAccountsDrawerHeader(
             accountName: Text("Black Rover"),
             accountEmail: Text("VickeBlanka - Wizard"),
@@ -24,11 +29,14 @@ class XDrawer extends StatelessWidget {
                   "https://lastfm.freetls.fastly.net/i/u/ar0/ad05b6bd6e70b95f31b9cb3215a509fc.jpg",
                 ),
                 fit: BoxFit.cover,
-                // colorFilter: ColorFilter.mode(
-                //   Color(0xff000000),
-                //   BlendMode.srcOver,
-                // ),
-                // opacity: 0.5,
+              ),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.yellow,
+                  Colors.black,
+                ],
               ),
             ),
           ),
