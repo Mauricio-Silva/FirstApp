@@ -34,12 +34,38 @@ class XReproducao extends StatelessWidget {
               ),
             ),
             Container(
-              // color: const Color(0x77000000),
               height: 30,
               alignment: Alignment.center,
               child: SmoothPageIndicator(
                 controller: controlador,
                 count: 3,
+              ),
+            ),
+            Positioned(
+              left: 10,
+              bottom: 10,
+              child: Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  color: Colors.white,
+                ),
+                width: 70,
+                height: 35,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      "5",
+                      style: TextStyle(fontSize: 20, color: Colors.black),
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

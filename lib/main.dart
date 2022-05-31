@@ -3,6 +3,7 @@ import 'package:meuapp/x_scaffold/x_app_bar.dart';
 import 'package:meuapp/x_scaffold/x_body.dart';
 import 'package:meuapp/x_scaffold/x_bottom_nav_bar.dart';
 import 'package:meuapp/x_scaffold/x_drawer.dart';
+import 'package:meuapp/x_scaffold/x_floating_action_button.dart';
 
 void main() {
   runApp(const FirstApp());
@@ -26,6 +27,7 @@ class FirstApp extends StatelessWidget {
           body: XBody(),
           drawer: XDrawer(),
           bottomNavigationBar: XBottomNavBar(),
+          floatingActionButton: XFloatingActionButton(),
         ),
       ),
     );

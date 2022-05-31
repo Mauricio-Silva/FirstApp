@@ -13,29 +13,27 @@ class XDrawer extends StatelessWidget {
           Stack(
             children: [
               Container(
+                height: 170.0,
                 decoration: const BoxDecoration(
-                  color: Colors.transparent,
                   image: DecorationImage(
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                     image: NetworkImage(
                       "https://lastfm.freetls.fastly.net/i/u/ar0/ad05b6bd6e70b95f31b9cb3215a509fc.jpg",
                     ),
                   ),
                 ),
-                height: 350.0,
               ),
               Container(
-                height: 350.0,
+                height: 170.0,
                 decoration: BoxDecoration(
-                  color: Colors.white,
                   gradient: LinearGradient(
                     begin: FractionalOffset.topCenter,
                     end: FractionalOffset.bottomCenter,
                     colors: [
-                      Colors.grey.withOpacity(0.0),
-                      Colors.black,
+                      Colors.grey.withOpacity(0),
+                      Colors.black.withOpacity(0.8),
                     ],
-                    stops: const [0.0, 1.0],
+                    stops: const [0, 1],
                   ),
                 ),
               ),
