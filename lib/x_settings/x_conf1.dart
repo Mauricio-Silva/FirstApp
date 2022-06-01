@@ -22,7 +22,7 @@ class XConf1 extends StatelessWidget {
           ElevatedButton(
               child: const Text("Voltar"),
               onPressed: () {
-                Navigator.popUntil(context, (route) => false);
+                Navigator.popUntil(context, (route) => route.isFirst);
               }),
         ],
       ),
