@@ -13,6 +13,14 @@ class BotNavBarState extends State<XBottomNavBar> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      switch (_selectedIndex) {
+        case 1:
+          Navigator.pushNamed(context, "/settings");
+          break;
+        case 2:
+          Navigator.pushNamed(context, "/account");
+          break;
+      }
     });
   }
 

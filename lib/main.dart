@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meuapp/x_scaffold/x_app_bar.dart';
-import 'package:meuapp/x_scaffold/x_body.dart';
-import 'package:meuapp/x_scaffold/x_bottom_nav_bar.dart';
-import 'package:meuapp/x_scaffold/x_drawer.dart';
-import 'package:meuapp/x_scaffold/x_floating_action_button.dart';
+import 'package:meuapp/account.dart';
+import 'package:meuapp/home.dart';
+import 'package:meuapp/settings.dart';
+import 'package:meuapp/x_settings/x_conf1.dart';
 
 void main() {
   runApp(const FirstApp());
@@ -19,17 +18,13 @@ class FirstApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: const DefaultTabController(
-        initialIndex: 3,
-        length: 7,
-        child: Scaffold(
-          appBar: XAppBar(),
-          body: XBody(),
-          drawer: XDrawer(),
-          bottomNavigationBar: XBottomNavBar(),
-          floatingActionButton: XFloatingActionButton(),
-        ),
-      ),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const XHome(),
+        "/settings": (context) => const XSettings(),
+        "/account": (context) => const XAccount(),
+        "/settings/conf1": (context) => const XConf1(),
+      },
     );
   }
 }
